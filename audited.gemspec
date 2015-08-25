@@ -19,6 +19,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_dependency 'rails-observers', '~> 0.1.2'
+  gem.add_dependency 'request_store'
 
   gem.add_development_dependency "protected_attributes"
   gem.add_development_dependency 'appraisal', '~> 1.0.0'
