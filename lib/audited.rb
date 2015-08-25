@@ -6,7 +6,7 @@ module Audited
     attr_accessor :ignored_attributes, :current_user_method, :audit_class
 
     def store
-      Thread.current[:audited_store] ||= {}
+      RequestStore.store[:audited_store] ||= {}
     end
   end
 

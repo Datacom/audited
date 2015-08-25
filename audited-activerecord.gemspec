@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'audited', Audited::VERSION
   gem.add_dependency 'activerecord', '~> 4.0'
+  gem.add_dependency 'request_store'
 
   gem.files         = `git ls-files lib`.split($\).grep(/(active_?record|generators)/)
   gem.files         << 'LICENSE'

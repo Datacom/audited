@@ -26,10 +26,10 @@ module Audited
       # by +user+. This method is hopefully threadsafe, making it ideal
       # for background operations that require audit information.
       def as_user(user, &block)
-        Thread.current[:audited_user] = user
+        RequestStore.store[:audited_user] = user
         yield
       ensure
-        Thread.current[:audited_user] = nil
+        RequestStore.store[:audited_user] = nil
       end
 
       # @private
@@ -93,7 +93,7 @@ module Audited
     end
 
     def set_audit_user
-      self.user = Thread.current[:audited_user] if Thread.current[:audited_user]
+      self.user = RequestStore.store[:audited_user] if RequestStore.store[:audited_user]
       nil # prevent stopping callback chains
     end
 
