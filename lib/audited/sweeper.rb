@@ -39,11 +39,12 @@ module Audited
   end
 end
 
-ActiveSupport.on_load(:action_controller) do
-  if defined?(ActionController::Base)
-    ActionController::Base.around_action Audited::Sweeper.new
-  end
-  if defined?(ActionController::API)
-    ActionController::API.around_action Audited::Sweeper.new
-  end
-end
+# https://github.com/collectiveidea/audited/issues/308
+# ActiveSupport.on_load(:action_controller) do
+#   if defined?(ActionController::Base)
+#     ActionController::Base.around_action Audited::Sweeper.new
+#   end
+#   if defined?(ActionController::API)
+#     ActionController::API.around_action Audited::Sweeper.new
+#   end
+# end
